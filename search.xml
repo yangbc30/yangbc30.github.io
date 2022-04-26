@@ -1,17 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/04/26/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>实二次型</title>
+    <url>/2022/04/27/%E5%AE%9E%E4%BA%8C%E6%AC%A1%E5%9E%8B/</url>
+    <content><![CDATA[<h1 id="实二次型"><a href="#实二次型" class="headerlink" title="实二次型"></a>实二次型</h1><blockquote>
+<p>从具体计算角度复习线代第4、5章内容，熟悉实对称矩阵对角化的三种途径</p>
+</blockquote>
+<h2 id="《线性代数讲义》第4章-矩阵的特征值与特征向量"><a href="#《线性代数讲义》第4章-矩阵的特征值与特征向量" class="headerlink" title="《线性代数讲义》第4章 矩阵的特征值与特征向量"></a>《线性代数讲义》第4章 矩阵的特征值与特征向量</h2><p>本章主要研究了以下三个内容</p>
+<ol>
+<li>相似对角化的条件和方法</li>
+<li>正交矩阵和施密特正交化</li>
+<li>实对称矩阵的正交对角化</li>
+</ol>
+<h3 id="相似对角化的条件和方法"><a href="#相似对角化的条件和方法" class="headerlink" title="相似对角化的条件和方法"></a>相似对角化的条件和方法</h3><h4 id="相似对角化"><a href="#相似对角化" class="headerlink" title="相似对角化"></a>相似对角化</h4><p>考虑 <strong>一般方阵</strong> $A$，是否存在 <strong>可逆矩阵</strong> $P$，使得 </p>
+<script type="math/tex; mode=display">
+\Lambda  = P^{-1} A P</script><p>其中 $\Lambda$ 为 <strong>对角阵</strong> 可以记做 ${\rm diag}(\lambda_1, \lambda_2, \cdots , \lambda_n)  $</p>
+<h4 id="特征值与特征向量"><a href="#特征值与特征向量" class="headerlink" title="特征值与特征向量"></a>特征值与特征向量</h4><p>从向量组的角度看待</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\Lambda  = P^{-1} A P \\
+\iff &AP = P\Lambda \\
+\iff &A(\xi_1, \xi_2, \cdots, \xi_n) = (\xi_1, \xi_2, \cdots , \xi_n) {\rm diag}(\lambda_1, \lambda_2, \cdots , \lambda_n) \\
+\iff &(A\xi_1, A\xi_2, \cdots , A\xi_n) = (\lambda_1 \xi_1, \lambda_2 \xi_2, \cdots , \lambda_n \xi_n) \\
+\iff &A\xi_i = \lambda_i \xi_i , \quad i = 1, 2, \cdots , n
+\end{aligned}</script><p>再用线性方程组的眼光看待</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    &A\xi = \lambda \xi            \\
+    \iff& (\lambda E- A) \xi = 0 
+\end{aligned}</script><p>要求线性方程组有解，即 $|\lambda E - A| = 0$</p>
+<p>由代数学基本定理，在复数域必有 $n$ 个根</p>
+<p>再将每个 $\lambda$ 代回方程解出对应 $\xi$</p>
+<h4 id="相似对角化的条件"><a href="#相似对角化的条件" class="headerlink" title="相似对角化的条件"></a>相似对角化的条件</h4><script type="math/tex; mode=display">
+P =  (\xi_1, \xi_2, \cdots , \xi_n)</script><p>并且要求 $P$ 可逆，即 $n$ 个特征向量 <strong>线性无关</strong></p>
+<blockquote>
+<p>不是所有矩阵都能有 $n$ 个线性无关的特征向量</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\fbox{定理 4.3.2\quad 属于不同特征值的特征向量线性无关}</script><p>如果 $n$ 个特征值都不同，存在 $n$ 个线性无关特征向量，可对角化</p>
+<script type="math/tex; mode=display">
+\fbox{定理 4.3.5\quad 属于某一特征值的线性无关特征向量的个数不会超过特征值的重数}</script><p>每个单重特征根贡献 $1$ 个线性无关特征向量，问题在多重特征根能不能找到等于其重数的线性无关特征向量</p>
+<h4 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h4><ol>
+<li><p>解 $|\lambda E - A | = 0$，得 $\lambda_1(s_1重),\lambda_2(s_2重),\cdots$</p>
+</li>
+<li><p>对于每个特征值，解齐次方程组 $(\lambda_i E - A)x = \theta$ </p>
+<p>得到一个基础解系 $\alpha<em>{i1}, \alpha</em>{i2}, \cdots, \alpha_{ir}$</p>
+<p>如果基础解系向量个数 $&lt;$ 特征值重数</p>
+<p>不可对角化</p>
+</li>
+<li><p>$\Lambda = {\rm diag}(\lambda_1, \cdots, \lambda_1, \lambda_2, \cdots , \lambda_2, \cdots )$取 $P$ 为所有基础解系构成的向量组（顺序与特征值一致）</p>
+</li>
+</ol>
+<blockquote>
+<p>一般的方阵有可能不能对角化，但是 <strong>实对称</strong> 矩阵可以相似对角化，并且 $P$ 为 <strong>正交矩阵</strong>，称之为正交对角化</p>
+</blockquote>
+<h3 id="正交矩阵和施密特正交化"><a href="#正交矩阵和施密特正交化" class="headerlink" title="正交矩阵和施密特正交化"></a>正交矩阵和施密特正交化</h3><h4 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h4><p>定义内积：</p>
+<p>对于实向量 $\alpha, \beta$ </p>
+<script type="math/tex; mode=display">
+(\alpha, \beta) = \alpha_1 \beta_1 + \alpha_2 \beta_2 + \cdots + \alpha_n \beta_n = a^{T} \beta</script><p>内积为 $0$ 垂直</p>
+<p>（实）正交矩阵定义：</p>
+<p>实方阵 $A$ 满足</p>
+<script type="math/tex; mode=display">
+A^T A = E</script><p>向量组角度看待：</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+    \alpha_1^T \\
+    \alpha_2^T \\
+    \vdots   \\
+    \alpha_n^T 
+\end{pmatrix}
+\begin{pmatrix}
+    \alpha_1 &\alpha_2 & \cdots \alpha_n
+\end{pmatrix}
+=
+\begin{pmatrix}
+    1  \\
+    & 1 \\
+    && \ddots \\
+    &&& 1 
+\end{pmatrix}</script><script type="math/tex; mode=display">
+\begin{pmatrix}
+    \alpha_1^T \alpha_1 &\alpha_1^T \alpha_2 & \cdots & \alpha_1^T \alpha_n \\
+    \alpha_2^T \alpha_1 &\alpha_2^T \alpha_2 & \cdots & \alpha_2^T \alpha_n \\
+    \vdots  & \vdots & \ddots & \vdots \\
+    \alpha_n^T \alpha_1 &\alpha_n^T \alpha_2 & \cdots & \alpha_n^T \alpha_n \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+    1  \\
+    & 1 \\
+    && \ddots \\
+    &&& 1 
+\end{pmatrix}</script><p>正交矩阵重要性质</p>
+<ol>
+<li>$A^{-1} = A^T$</li>
+<li>构成向量组线性无关</li>
+</ol>
+<h4 id="施密特正交化"><a href="#施密特正交化" class="headerlink" title="施密特正交化"></a>施密特正交化</h4><p><strong>是否可以 </strong>以及 <strong>如何</strong> 将一个线性无关的向量组等价的化为一个正交向量组 $\xi_1, \xi_2, \cdots , \xi_r$？</p>
+<p>几何的语言就是 <strong>垂直</strong></p>
+<p>三维直角坐标系考虑 向量组 $(1, 0, 0), (1, 1, 0), (1, 1, 1)$</p>
+<ol>
+<li>直接取 $\xi_1 = (1, 0, 0)$ </li>
+<li>$(1, 1, 0)$ 和 $\xi_1$ 并不垂直，但是可以进行向量分解，取出 $(1, 1, 0)$ 垂直于 $\xi_1$ 的部分 $(0, 1, 0)$ 作为 $\xi_2$</li>
+<li>$(1, 1, 1)$ 与 $\xi_1, \xi_2$ 都不垂直，但是仍可以取出垂直于 $\xi_1, \xi_2$ 的部分 $(0, 0, 1)$ 作为 $\xi_3$</li>
+<li>得到和原向量组等价的正交向量组 $\xi_1, \xi_2, \xi_3$</li>
+</ol>
+<p>详细步骤见书本</p>
+<h3 id="实对称矩阵的正交对角化"><a href="#实对称矩阵的正交对角化" class="headerlink" title="实对称矩阵的正交对角化"></a>实对称矩阵的正交对角化</h3><p>实对称矩阵指 $A \in \R^{n\times n}, A^T = A$</p>
+<blockquote>
+<p>不同于一般方阵，所有实对称矩阵均可相似对角化，并且 $P$ 可取正交矩阵</p>
+</blockquote>
+<script type="math/tex; mode=display">
+\fbox{定理4.5.3\quad 若A是实对称矩阵，存在正交矩阵 P 使得 $ \Lambda = P^TAP$ 也即 $\Lambda = P^{-1}AP$}</script><p>对于<strong>一般方阵</strong>，不能相似对角化的原因是 多重特征值对应的线性无关特征向量个数可能小于特征值重数</p>
+<p>实对称矩阵均能相似对角化，所以特征值有几重，就能解出几个线性无关特征向量</p>
+<p>如何找到正交矩阵 $P$</p>
+<script type="math/tex; mode=display">
+\fbox{定理4.5.2\quad 实对称矩阵的属于不同特征值的特征向量正交 }</script><p>类似于相似对角化的方法</p>
+<ol>
+<li><p>求出特征值</p>
+</li>
+<li><p>对于单重特征值，其对应特征向量必然与属于其他特征值的特征向量正交</p>
+<p>对于多重特征值，其对应特征向量必然与属于其他特征值的特征向量正交</p>
+<p>还要保证属于此特征值的几个特征向量正交，解出基础解系，然后对基础解系施密特正交化</p>
+</li>
+<li><p>对所有特征向量单位化，排成正交矩阵 $P$</p>
+</li>
+</ol>
+<h2 id="第5章-实二次型"><a href="#第5章-实二次型" class="headerlink" title="第5章 实二次型"></a>第5章 实二次型</h2><h3 id="实二次型定义"><a href="#实二次型定义" class="headerlink" title="实二次型定义"></a>实二次型定义</h3><script type="math/tex; mode=display">
+\begin{aligned}
+f(x_1, x_2, \cdots , x_n) =& a_{11}x_1^2 + a_{12} x_1 x_2 +\cdots a_{1n} x_1x_n \\
+                            & +a_{21}x_2x_1 + a_{22} x_2^2 +\cdots a_{2n} x_2x_n \\
+                            & + \cdots \\
+                            & + a_{n1} x_n x_1 + a_{n2} x_n x_2 + \cdots a_{nn}x_n^2 \\
+\end{aligned}</script><script type="math/tex; mode=display">
+f(x_1, x_2, \cdots , x_n) = 
+\begin{pmatrix}
+    x_1 & x_2 & \cdots & x_n
+\end{pmatrix}
+
+\begin{pmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n}\\
+    a_{21} & a_{22} & \cdots & a_{2n}\\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}\\
+\end{pmatrix}
+
+
+\begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+\end{pmatrix} = x^T A x</script><h3 id="非退化的线性变换与合同变换"><a href="#非退化的线性变换与合同变换" class="headerlink" title="非退化的线性变换与合同变换"></a>非退化的线性变换与合同变换</h3><blockquote>
+<p>如何将二次型变为更简单的形式</p>
+</blockquote>
+<p>实二次型的标准型</p>
+<script type="math/tex; mode=display">
+f(x_1, x_2, \cdots , x_n) = d_{1} y_1^2 + d_2 y_2^2 + \cdots + d_n y_n^2</script><p>做变量代换</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x_1 = c_{11} y_1 + c_{12} y_2 + \cdots + c_{1n} y_n, \\
+x_2 = c_{21} y_1 + c_{22} y_2 + \cdots + c_{2n} y_n, \\
+\cdots \cdots  \\
+x_n = c_{n1} y_1 + c_{n2} y_2 + \cdots + c_{nn} y_n,
+\end{cases}</script><p>或者矩阵形式</p>
+<script type="math/tex; mode=display">
+x = Py</script><p>如果 $|P| \ne 0$，称此代换为 <strong>非退化</strong> 的线性变换</p>
+<blockquote>
+<p>非退化意思是每一个 $x$ 都唯一对应一个 $y$ 反之亦然</p>
+</blockquote>
+<p>代换后</p>
+<script type="math/tex; mode=display">
+x^T A x = (Py)^T A (Py) = y^T (P^T A P) y = y^T B y</script><p> 若 $P$ 可逆，$B = P^T AP$ 为 $A$ 到 $B$ 的<strong>合同变换</strong> （相似变换？）</p>
+<script type="math/tex; mode=display">
+\fbox{定理 5.1.1\quad 存在非退化的线性变换将实二次型化为标准形；存在可逆矩阵将实对称矩阵合同变换为实对角矩阵}</script><h3 id="三种对角化方法"><a href="#三种对角化方法" class="headerlink" title="三种对角化方法"></a>三种对角化方法</h3><h4 id="正交对角化"><a href="#正交对角化" class="headerlink" title="正交对角化"></a>正交对角化</h4><p>已论述</p>
+<h4 id="配方法"><a href="#配方法" class="headerlink" title="配方法"></a>配方法</h4><p>每一次配方都消去关于某一项的交叉项</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(x_1, x_2, x_3) &= x_1^2 - 2 x_1x_2 + 8x_1x_3 + x_2^2 + 8x_2 x_3 -4 x_3^2  \\
+                & = (x_1 - x_2 +4x_3)^2 + 16x_2x_3 -20 x_3^2 \\
+                &= (x_1 - x_2 + 4x_3)^2 - 20 \left(x_3-\dfrac{2}{5}x_2\right)^2 + \dfrac{16}{5} x_2^2 \\
+                & = y_1^2 - 20 y_2^2 + \dfrac{16}{5}y_3^2
+\end{aligned}</script><p>如果二次型中不含平方项，变换使平方项出现</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+f(x_1, x_2, x_3) &= 2x_1 x_2 +2x_1x_3 -2x_2 x_3 \\
+                &= 2(y_1 + y_2)(y_1 - y_2) + (y_1 + y_3)y_3 - 2(y_1-y_2)y_3 \\
+                &= 2y_1^2 -2 y_2^2 +4 y_2 y_3 \\
+                &=2y_1^2 -2(y_2 -y_3)^2 +2y_3^2
+\end{aligned}</script><h4 id="合同变换法"><a href="#合同变换法" class="headerlink" title="合同变换法"></a>合同变换法</h4><p>用 <strong>相同的</strong> 初等行变换与列变换将 <strong>每行非对角元</strong> 化为 $0$</p>
+<script type="math/tex; mode=display">
+f(x_1, x_2, x_3) = x_1^2 - 2 x_1x_2 + 8x_1x_3 + x_2^2 + 8x_2 x_3 -4 x_3^2</script><p>矩阵表达</p>
+<script type="math/tex; mode=display">
+f(x_1, x_2, x_3) = x^T Ax</script><script type="math/tex; mode=display">
+A = 
+\begin{pmatrix}
+    1 & -1 & 4\\
+    -1 & 1 & 4\\
+    4 & 4 & -4 \\
+\end{pmatrix}
+\underrightarrow{c_2 +c_1, c_3 - 4c_1} 
+\begin{pmatrix}
+    1 & 0 & 0\\
+    -1 & 0 & 8\\
+    4 & 8 & -20 \\
+\end{pmatrix}
+\underrightarrow{r_2 +r_1, r_3 - 4r_1} 
+\begin{pmatrix}
+    1 & 0 & 0\\
+    0 & 0 & 8\\
+    0 & 8 & -20 \\
+\end{pmatrix}
+\underrightarrow{r_2 \leftrightarrow r_3,c_2\leftrightarrow c_3} 
+\begin{pmatrix}
+    1 & 0 & 0\\
+    0 &-20 & 8\\
+    0 & 8 & 0 \\
+\end{pmatrix}
+\underrightarrow{\frac{2}{5}r_2 + r_3, \frac{2}{5}c_2 + c_3}
+\begin{pmatrix}
+    1 & 0 & 0\\
+    0 &-20 & 0\\
+    0 & 0 & \frac{5}{16} \\
+\end{pmatrix}</script><h2 id="补充：两个矩阵同时对角化"><a href="#补充：两个矩阵同时对角化" class="headerlink" title="补充：两个矩阵同时对角化"></a>补充：两个矩阵同时对角化</h2><p>存在可逆矩阵 $P$ 对正定对称矩阵 $A$ 以及实对称矩阵 $B$ 同时合同对角化</p>
+<p>对于正定矩阵 $A$ 存在可逆矩阵 $P_1$ 使得 $E = P_1^T AP_1$</p>
+<script type="math/tex; mode=display">
+P_1^TAP_1 \to E \\
+P_1^TBP_1 \to B'</script><p>显然 $B’$ 依然为实对称矩阵，则对其正交对角化 $B’ = P_2^T\Lambda P_2$，其中 $P_2$ 为正交矩阵</p>
+<script type="math/tex; mode=display">
+P_2^TEP_2 \to P_2^T P_2 = E\\
+P_2^T B' P_2\to  \Lambda</script><p>可取 $P = P_1P_2$</p>
+<p>使得正定矩阵 $A$ 变换为 $E$</p>
+<p>并且实对称矩阵 $B$ 相似对角化为 $\Lambda = {\rm diag}(\lambda_1, \lambda_2, \cdots , \lambda_n)$</p>
 ]]></content>
+      <categories>
+        <category>数学</category>
+      </categories>
+      <tags>
+        <tag>线性代数</tag>
+      </tags>
   </entry>
 </search>
