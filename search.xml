@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>OpenWRT</title>
+    <url>/2022/07/05/OpenWRT/</url>
+    <content><![CDATA[<h1 id="OpenWRT"><a href="#OpenWRT" class="headerlink" title="OpenWRT"></a>OpenWRT</h1><h2 id="配置nju镜像"><a href="#配置nju镜像" class="headerlink" title="配置nju镜像"></a>配置<code>nju</code>镜像</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/opkg/distfeeds.conf</span><br><span class="line">sudo copy /etc/opkg/distfeeds.conf /etc/opkg/distfeeds.conf.backup</span><br><span class="line">sudo vim /etc/opkg/disfeeds.conf</span><br><span class="line">:%s<span class="comment">#downloads.openwrt.org#mirror.nju.edu.cn/openwrt#g</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;s_downloads.openwrt.org_mirror.nju.edu.cn/openwrt_&#x27;</span> /etc/opkg/distfeeds.confs</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>openwrt</category>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>openwrt</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>beamer</title>
     <url>/2022/06/08/beamer/</url>
     <content><![CDATA[<blockquote>
@@ -23,6 +38,389 @@
       </tags>
   </entry>
   <entry>
+    <title>LaTeX_math</title>
+    <url>/2022/06/08/latex-math/</url>
+    <content><![CDATA[<h1 id="LaTeX-math"><a href="#LaTeX-math" class="headerlink" title="LaTeX_math"></a>LaTeX_math</h1><h3 id="在公式正下方加公式"><a href="#在公式正下方加公式" class="headerlink" title="在公式正下方加公式"></a>在公式正下方加公式</h3><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\oint</span> = 2<span class="keyword">\pi</span> i <span class="keyword">\underset</span>&#123;|z|<span class="keyword">\le</span> 1&#125;&#123;<span class="keyword">\mathrm</span>&#123;Res&#125;&#125;f(z) </span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+\oint = 2\pi i \underset{|z|\le 1}{\mathrm{Res}}f(z)</script><h2 id="方程组"><a href="#方程组" class="headerlink" title="方程组"></a>方程组</h2><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line">	f(x)=</span><br><span class="line">	<span class="keyword">\left</span><span class="keyword">\&#123;</span></span><br><span class="line">	<span class="keyword">\begin</span>&#123;align&#125;</span><br><span class="line">  		x <span class="built_in">&amp;</span>= a+ r<span class="keyword">\cos</span><span class="keyword">\theta</span></span><br><span class="line"> 		y <span class="built_in">&amp;</span>= b +r<span class="keyword">\sin</span><span class="keyword">\theta</span></span><br><span class="line">	<span class="keyword">\end</span>&#123;align&#125;</span><br><span class="line">	<span class="keyword">\right</span>.</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">
+    f(x)=
+    \left\{
+    \begin{align}
+          x &= a+ r\cos\theta \\
+         y &= b +r\sin\theta
+    \end{align}
+    \right.</script>]]></content>
+      <categories>
+        <category>LaTeX</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>crack</title>
+    <url>/2022/07/09/crack/</url>
+    <content><![CDATA[<h1 id="Crack"><a href="#Crack" class="headerlink" title="Crack"></a>Crack</h1><h2 id="IDM"><a href="#IDM" class="headerlink" title="IDM"></a>IDM</h2><p><a href="https://free4pc.org/idm-crack/">https://free4pc.org/idm-crack/</a></p>
+]]></content>
+      <categories>
+        <category>software</category>
+      </categories>
+      <tags>
+        <tag>software</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux</title>
+    <url>/2022/07/13/linux/</url>
+    <content><![CDATA[<h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><h2 id="linux启动过程"><a href="#linux启动过程" class="headerlink" title="linux启动过程"></a>linux启动过程</h2><ol>
+<li><p><code>BOIS</code>自检，<code>BIOS</code>启动硬件</p>
+</li>
+<li><p>操作系统接管硬件，首先读取<code>/boot</code>目录下的内核文件</p>
+</li>
+<li><p>运行<code>init</code>程序</p>
+<ol>
+<li><p><code>init</code>首先读取配置文件 <code>/etc/inittab</code></p>
+</li>
+<li><p>有些程序要开机自启，在 <code>linux</code> 中称为 <code>守护进程（daemon）</code></p>
+</li>
+<li><p>启动分为多个级别，不同级别启动不同守护进程</p>
+<ol>
+<li><p>运行级别0：系统停机状态，系统默认运行级别不能设为0，否则不能正常启动</p>
+</li>
+<li><p>运行级别1：单用户工作状态，root权限，用于系统维护，禁止远程登陆</p>
+</li>
+<li><p>运行级别2：多用户状态(没有NFS)</p>
+</li>
+<li><p>运行级别3：完全的多用户状态(有NFS)，登陆后进入控制台命令行模式</p>
+</li>
+<li><p>运行级别4：系统未使用，保留</p>
+</li>
+<li><p>运行级别5：X11控制台，登陆后进入图形GUI模式</p>
+</li>
+<li><p>运行级别6：系统正常关闭并重启，默认运行级别不能设为6，否则不能正常启动</p>
+</li>
+<li><p><code>/etc/rc.d/rc.sysinit</code> 是每个运行级别都要首先运行的脚本，主要完成：激活交换分区，检查磁盘，加载硬件模块</p>
+<blockquote>
+<p><code>rc</code>short for <code>run commands</code></p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><p><code>rc</code> 执行完毕后基本系统环境设置好了，<code>init</code> 接下来打开6个终端，供用户登录</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1:2345:respawn:/sbin/mingetty tty1</span><br><span class="line">2:2345:respawn:/sbin/mingetty tty2</span><br><span class="line">3:2345:respawn:/sbin/mingetty tty3</span><br><span class="line">4:2345:respawn:/sbin/mingetty tty4</span><br><span class="line">5:2345:respawn:/sbin/mingetty tty5</span><br><span class="line">6:2345:respawn:/sbin/mingetty tty6</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>用户登录：<code>root</code> 可以登录所有终端</p>
+</li>
+<li><p>默认登陆的是 <code>tty1</code> 可切换至其他终端</p>
+</li>
+</ol>
+<h2 id="linux-系统目录结构"><a href="#linux-系统目录结构" class="headerlink" title="linux 系统目录结构"></a><code>linux</code> 系统目录结构</h2><ul>
+<li><code>/bin</code> ：<code>binaries</code> 库，存放最常使用的程序和命令（<code>kill</code>, <code>rm</code>, <code>mkdir</code> 等）</li>
+<li><code>/boot</code> ： 系统启动所需文件，包括 内核文件 和 连接文件</li>
+<li><code>/dev</code>  ： 存放外部设备（<code>device</code>），外部设备以文件的形式进行访问（一切皆文件）</li>
+<li><code>/etc</code> ： 存放所有系统（包括应用）所需的配置文件</li>
+<li><code>/home</code>  ： 用户文件夹，例如 <code>Documents</code>, <code>Desktop</code></li>
+<li><code>/lib</code> ： 系统的动态连接共享库，类似 <code>DLL</code> 所有程序都要用到这些库 <code>apt</code>, <code>python</code>, <code>systemd</code></li>
+<li><code>/media</code> ： 挂载U盘、光驱等设备</li>
+<li><code>/mnt</code> ： 临时挂载别的文件系统，将光驱挂载进来，可以查看光驱内容</li>
+<li><code>/proc</code> ： <code>Processes</code> 是一种虚拟文件系统（是系统内存的映射），储存内核运行装态的特殊文件。</li>
+<li><code>/root</code> ： 系统管理员的用户主目录</li>
+<li><code>/sbin</code> ： 供系统管理员使用的管理系统的程序，如 <code>shutdown</code>, <code>usermod</code>,</li>
+<li><code>/srv</code> ： 一些服务启动后需要提取的数据</li>
+<li><code>/sys</code> ： 文件系统 <code>sysfs</code> 集成了针对进程的 <code>proc</code>文件系统、针对设备的<code>devfs</code>文件系统以及针对伪终端的<code>devpts</code>文件系统，当一个内核被创建时，对应的文件系统被创建</li>
+<li><code>/tmp</code> ： 存放一些临时文件</li>
+<li><code>/usr</code> ： 共享资源（<code>unix shared resources</code> ），<code>/bin -&gt; /usr/bin</code>，<code>/lib -&gt; /usr/lib</code>，以及用户的程序。类似于 <code>Program Files</code></li>
+<li><code>/var</code> ： 存放不断扩充的内容。例如 日志文件</li>
+</ul>
+<h2 id="ssh-登录和公钥私钥"><a href="#ssh-登录和公钥私钥" class="headerlink" title="ssh 登录和公钥私钥"></a><code>ssh</code> 登录和公钥私钥</h2><blockquote>
+<p>从非对称算法角度上， 有两个数e和d, 不等于d，通过公开函数f1(e,p)得到m<br>同样，也可以通过公开函数f2(d,m)得到p， 其中m是原始文本而p是经过变换后的文本。<br>一般而言成为为【编码】和【解码】， 其中持有e的人编码后的数据只有持有d的人能解码，<br>同样持有d的人编码后只有e能解。 这里习惯性的吧e定义为【公钥】，d定义为【私钥】<br>作为公钥私钥的生成着会保存【私钥】（大多数情况下私钥文件里面也会包含公钥），<br>然后讲【公钥】广而告之。</p>
+<p>注意【编码】和【解码】和【加密】【解密】是有差别的。<br>密码学里面， 对文字进行编码后，只有特定的对象（对方）能够解码。 符合这种语义<br>的编解码方式称之为【加密】和【解密】。<br>显然用【私钥】去【编码】后的数据不能叫【加密】的，因为【公钥】所有人都知道，失去了<br>加密的意义。 在公钥私钥系统中， 统一采用【公钥】加密和【私钥】解密。</p>
+<p>而且【私钥】去编码数据【公钥】再去解码数据也并不是没有意义，只是习惯性称之为【签名】<br>即保证这块数据由【私钥】的持有者生成而不是不让人看到数据是什么<br>（因为大家都有公钥都能解都能证明—比如约定解出来的数据带一个尾巴hahaha，那么所有符合xxxxhahaha的数据都可以认为是私钥发送的别人不能伪造的，发送<br>的有效数据是xxxx）</p>
+<p>其中用e进行 一个公钥对应一个私钥，</p>
+</blockquote>
+<h2 id="linux-文件基本属性"><a href="#linux-文件基本属性" class="headerlink" title="linux 文件基本属性"></a><code>linux</code> 文件基本属性</h2><h3 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@www /]<span class="comment"># ls -l</span></span><br><span class="line">total 64</span><br><span class="line">dr-xr-xr-x   2 root root 4096 Dec 14  2012 bin</span><br><span class="line">dr-xr-xr-x   4 root root 4096 Apr 19  2012 boot</span><br></pre></td></tr></table></figure>
+<p>文件第一个属性：</p>
+<ul>
+<li><code>d</code> 目录</li>
+<li><code>-</code>  文件</li>
+<li><code>l</code>  连接文档</li>
+</ul>
+<p>接下来三个一组 <code>rwx(read write execute)</code>，无对应权限则显示 <code>-</code></p>
+<p>一共三组，分别是 属主权限，属组权限，其他用户权限</p>
+<p><img src="linux.assets/363003_1227493859FdXT.png" alt="363003_1227493859FdXT"></p>
+<p>对于 <code>root</code> 用户，文件权限对其不起作用</p>
+<h3 id="更改文件属性"><a href="#更改文件属性" class="headerlink" title="更改文件属性"></a>更改文件属性</h3><p><code>chgrp</code> 更改文件属组</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chgrp</span> [-R（递归）] 属组名 文件名</span><br></pre></td></tr></table></figure>
+<p><code>chown</code> 更改文件属主，也可同时更改文件属组</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chown</span> [-R] 属主名 文件名</span><br><span class="line"><span class="built_in">chown</span> [-R] 属主名：属组名 文件名</span><br></pre></td></tr></table></figure>
+<p><code>chmod</code> 更改文件9个属性</p>
+<p>read : 4</p>
+<p>write : 2</p>
+<p>execute : 1</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">chmod</span> [-R] xyz</span><br></pre></td></tr></table></figure>
+<h2 id="linux-文件与目录管理"><a href="#linux-文件与目录管理" class="headerlink" title="linux 文件与目录管理"></a><code>linux</code> 文件与目录管理</h2><p><code>pwd</code> 显示当前目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"> yangbc@Yangbc30  /bin  <span class="built_in">pwd</span></span><br><span class="line">/bin</span><br><span class="line"> yangbc@Yangbc30  /bin  <span class="built_in">pwd</span> -P <span class="comment">#显示真实路径</span></span><br><span class="line">/usr/bin</span><br></pre></td></tr></table></figure>
+<h3 id="文件链接"><a href="#文件链接" class="headerlink" title="文件链接"></a>文件链接</h3><p>硬链接：不同文件名指向磁盘同一区块</p>
+<p>软链接：文件名指向磁盘中链接文件，链接文件储存到所链接文件的路径</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"> yangbc@Yangbc30  ~  <span class="built_in">ls</span> -li</span><br><span class="line">total 8</span><br><span class="line">9324 -rw-rw-r-- 2 yangbc yangbc    0 7月  13 11:35 f1</span><br><span class="line">9324 -rw-rw-r-- 2 yangbc yangbc    0 7月  13 11:35 f2</span><br><span class="line">9330 lrwxrwxrwx 1 yangbc yangbc    2 7月  13 11:36 f3 -&gt; f1</span><br></pre></td></tr></table></figure>
+<h2 id="linux-用户和用户组管理"><a href="#linux-用户和用户组管理" class="headerlink" title="linux 用户和用户组管理"></a><code>linux</code> 用户和用户组管理</h2><p><code>useradd</code> 添加新用户 -g （加入用户组） -d（指定主目录）</p>
+<p><code>usermod</code>  改变用户属性，参数同上</p>
+<p><code>userdel</code> 删除用户 -r（将主目录一起删除）</p>
+<p>用户刚创建的时候没有口令，被系统锁定，无法使用，超级用户给他人设定口令，普通用户修改自己的口令</p>
+<p><code>passwd</code></p>
+<hr>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">groupadd group1 <span class="comment">#增加新组，GID（用户组标识）是目前最大+1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">groupadd -g 101 group2 <span class="comment">#增加新组，并指定GID</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">groupdel group1 <span class="comment">#删除用户组</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">groupmod [-g(新GID) -n（新组名）]group1</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">newgrp <span class="comment">#切换到所属的其他用户组</span></span><br></pre></td></tr></table></figure>
+<p>用户信息文件：</p>
+<p><code>/etc/passwd</code> 用户基本信息：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell</span><br></pre></td></tr></table></figure>
+<p>有些用户登录 <code>shell</code> 为 <code>/usr/sbin/nologin</code>，如<code>sys</code>，<code>bin</code>，<code>adm</code> 等其为伪用户，主要是为了方便系统管理 </p>
+<p><code>/etc/shadow</code> 密码信息 </p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">登录名:加密口令:最后一次修改时间:最小时间间隔:最大时间间隔:警告时间:不活动时间:失效时间:标志</span><br></pre></td></tr></table></figure>
+<p><code>/etc/group</code> 用户组信息</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">组名:口令:组标识号:组内用户列表</span><br></pre></td></tr></table></figure>
+<h2 id="linux-磁盘管理"><a href="#linux-磁盘管理" class="headerlink" title="linux 磁盘管理"></a><code>linux</code> 磁盘管理</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">df</span> -a 所有文件系统（包括复制弃用的） -h 用易读的单位显示大小 -T 文件系统的类别</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -h 易读 -s 列出总量而不递归显示子目录</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">fdisk /dev/sdc <span class="comment"># manage partition</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mount /dev/hdc6 /mnt/hdc6 <span class="comment"># 挂载磁盘</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>latex_typesetting</title>
+    <url>/2022/07/10/latex-typesetting/</url>
+    <content><![CDATA[<h1 id="latex-typesetting"><a href="#latex-typesetting" class="headerlink" title="latex-typesetting"></a>latex-typesetting</h1><figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\documentclass</span>&#123;article&#125;</span><br><span class="line"><span class="keyword">\usepackage</span>[UTF8]&#123;ctex&#125; <span class="comment">% UTF8 大写</span></span><br></pre></td></tr></table></figure>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\subsection</span>&#123;实验资源&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;center&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;tabular&#125;&#123;|c|c|c|&#125; <span class="comment">% 无需引用其他包，竖边框</span></span><br><span class="line">        <span class="keyword">\hline</span>  <span class="comment">% 上边框</span></span><br><span class="line">        设备名称 <span class="built_in">&amp;</span> 设备型号 <span class="built_in">&amp;</span> 软件版本 <span class="keyword">\\</span> <span class="comment">% 每行要换行</span></span><br><span class="line">        <span class="keyword">\hline</span></span><br><span class="line">        交换机 <span class="built_in">&amp;</span> S5730LI/S5330LI <span class="built_in">&amp;</span> V200R019C10 <span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\hline</span></span><br><span class="line">        路由器 <span class="built_in">&amp;</span> AR657/AR6140 <span class="built_in">&amp;</span> V300R019C10 <span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\hline</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;center&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="latex-typesetting.assets/image-20220709220154480.png" alt="image-20220709220154480"></p>
+<h2 id="全角-半角"><a href="#全角-半角" class="headerlink" title="全角/半角"></a>全角/半角</h2><p>全角：ａｓｄｆａｓｄｆ／／，，？？</p>
+<p>半角：asdfasdf//,,??asdfasdf//,,??</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><a href="https://latex-tutorial.com/tutorials/figures/">https://latex-tutorial.com/tutorials/figures/</a></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[h] <span class="comment">% 在code的位置显示</span></span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=0.7<span class="keyword">\linewidth</span>]&#123;img/1<span class="built_in">_</span>1.png&#125; <span class="comment">%宽度</span></span><br><span class="line">    <span class="keyword">\centering</span> <span class="comment">% 居中</span></span><br><span class="line">    <span class="keyword">\caption</span>&#123;设备管理器&#125; <span class="comment">% 标题</span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:Device Manager&#125; <span class="comment">%引用</span></span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="换段-页"><a href="#换段-页" class="headerlink" title="换段\页"></a>换段\页</h2><figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\par</span> <span class="comment">% 换段之后有首行缩进</span></span><br><span class="line">&lt;<span class="keyword">\CR</span>&gt;&lt;<span class="keyword">\CR</span>&gt; <span class="comment">% 两个回车也可换段</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\newpage</span> <span class="comment">% 换页后enumerate图片显示正常</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p><a href="https://blog.csdn.net/weixin_36815313/article/details/109391516">https://blog.csdn.net/weixin_36815313/article/details/109391516</a></p>
+<p><a href="https://tex.stackexchange.com/questions/180222/how-to-change-font-size-for-specific-lstlisting">https://tex.stackexchange.com/questions/180222/how-to-change-font-size-for-specific-lstlisting</a></p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;listings&#125;</span><br><span class="line"><span class="keyword">\lstset</span>&#123;</span><br><span class="line">    frame=shadowbox, <span class="comment">%把代码用带有阴影的框圈起来</span></span><br><span class="line">    breaklines=true, <span class="comment">%对过长的代码换行</span></span><br><span class="line">    numbers=left, <span class="comment">%显示行号</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">\begin</span>&#123;lstlisting&#125;[basicstyle=<span class="keyword">\tiny</span>] <span class="comment">%调整字号</span></span><br><span class="line"> ....</span><br><span class="line"><span class="keyword">\end</span>&#123;lstlisting&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="pdf-生成书签"><a href="#pdf-生成书签" class="headerlink" title="pdf 生成书签"></a>pdf 生成书签</h2><figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;hyperref&#125;  <span class="comment">% 在\begin&#123;document&#125;之前加入</span></span><br></pre></td></tr></table></figure>
+<p>但是有红框，可以如下配置</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;hyperref&#125;  </span><br><span class="line"><span class="comment">%%%%  下面是新加的  %%%%</span></span><br><span class="line"><span class="keyword">\hypersetup</span>&#123;hidelinks,</span><br><span class="line">	colorlinks=true,</span><br><span class="line">	allcolors=black,</span><br><span class="line">	pdfstartview=Fit,</span><br><span class="line">	breaklinks=true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>latex</category>
+      </categories>
+      <tags>
+        <tag>latex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nju_box</title>
+    <url>/2022/07/06/nju-box/</url>
+    <content><![CDATA[<h1 id="nju-box"><a href="#nju-box" class="headerlink" title="nju_box"></a>nju_box</h1><p>链接：<code>https://box.nju.edu.cn/seafdav</code></p>
+<blockquote>
+<p>少数软件分为两部分 </p>
+<p><strong>地址</strong> <code>https://box.nju.edu.cn</code></p>
+<p><strong>路径</strong> <code>/seafdav</code></p>
+</blockquote>
+<p>账户名：<code>学工号@nju.edu.cn</code></p>
+<p>密码：<code>和同一身份验证一致</code></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>nvim</title>
+    <url>/2022/06/28/nvim/</url>
+    <content><![CDATA[<h1 id="nvim"><a href="#nvim" class="headerlink" title="nvim"></a>nvim</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install software-properties-common</span><br><span class="line">sudo apt update</span><br><span class="line">sudo add-apt-reposity ppa:neovim-ppa/stable</span><br><span class="line">sudo apt install neovim <span class="comment"># 正常apt安装将安装低版本</span></span><br><span class="line"><span class="comment"># 但是如此安装版本仍不够新</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/neovim/neovim/releases">Releases · neovim/neovim (github.com)</a></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># github release 安装最新</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>nvim</category>
+      </categories>
+      <tags>
+        <tag>nvim</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>todo</title>
+    <url>/2022/07/10/todo/</url>
+    <content><![CDATA[<h1 id="ToDo"><a href="#ToDo" class="headerlink" title="ToDo"></a>ToDo</h1><h2 id="1-systemctl-start-music"><a href="#1-systemctl-start-music" class="headerlink" title="1. systemctl start music"></a>1. systemctl start music</h2><ol>
+<li><p>error</p>
+<p><img src="todo.assets/image-20220709123508121.png" alt="image-20220709123508121"></p>
+</li>
+<li><p>.service</p>
+<p><img src="todo.assets/image-20220709123647720.png" alt="image-20220709123647720"></p>
+<p><img src="todo.assets/image-20220709123716455.png" alt="image-20220709123716455"></p>
+</li>
+<li><p>music</p>
+<p><img src="todo.assets/image-20220709123806866.png" alt="image-20220709123806866"></p>
+</li>
+</ol>
+<h2 id="MC-can’t-music"><a href="#MC-can’t-music" class="headerlink" title="MC can’t music"></a>MC can’t music</h2><ol>
+<li>docker host net can’t</li>
+<li>npm can’t</li>
+<li>app can’t</li>
+</ol>
+<p>firewall problem?</p>
+<h2 id="Store-disconnect-with-vpn"><a href="#Store-disconnect-with-vpn" class="headerlink" title="Store disconnect with vpn"></a>Store disconnect with vpn</h2><p><img src="todo.assets/image-20220709164541175.png" alt="image-20220709164541175"></p>
+<p>Code: 0x80072EFD</p>
+<p>但是不用代理就好了</p>
+<blockquote>
+<p>用了代理就自动走代理了</p>
+<p>但是应该是中国服务器</p>
+<p>反而用代理连不上</p>
+<ol>
+<li>添加路由表</li>
+<li>切换服务器</li>
+</ol>
+</blockquote>
+<h2 id="pip-install-can’t-proxy"><a href="#pip-install-can’t-proxy" class="headerlink" title="pip install can’t proxy"></a>pip install can’t proxy</h2><p><img src="todo.assets/image-20220709235617791.png" alt="image-20220709235617791"></p>
+<h2 id="latex"><a href="#latex" class="headerlink" title="latex"></a>latex</h2><ol>
+<li>设置每行宽度</li>
+</ol>
+<p>图片强制摆放</p>
+<p>进一步配置vscode latex</p>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><p>当数据帧进入有多个vlan标签的trunk时会被打上什么标签</p>
+<p><img src="todo.assets/image-20220710215652242.png" alt="image-20220710215652242"></p>
+<p>但是若将路由器相连的两端口改为对应vlan标记的trunk，则不能互通。（为什么？）</p>
+<p>eNSP无法打开AR</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype off</span><br></pre></td></tr></table></figure>
+<p>但是wsl和wsa打不开</p>
+<p><img src="todo.assets/image-20220712131827177.png" alt="image-20220712131827177"></p>
+<p>和这个功能有关</p>
+<h2 id="autohotkey"><a href="#autohotkey" class="headerlink" title="autohotkey"></a>autohotkey</h2><p>当管理员权限运行应用，脚本起不了作用</p>
+]]></content>
+      <categories>
+        <category>todo</category>
+      </categories>
+      <tags>
+        <tag>todo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>vim</title>
+    <url>/2022/06/28/vim/</url>
+    <content><![CDATA[<h1 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">w !sudo <span class="built_in">tee</span> % <span class="comment"># 编辑时忘sudo</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">s<span class="comment">#\#\\#g #使用其他分隔符替换，避免转义</span></span><br><span class="line">s@\@\\@g <span class="comment">#</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">filetype plugin indent on</span><br><span class="line"><span class="built_in">set</span> tabstop=4</span><br><span class="line"><span class="string">&quot; 表示一个 tab 显示出来是多少个空格的长度，默认8</span></span><br><span class="line"><span class="string">set shiftwidth=4</span></span><br><span class="line"><span class="string">&quot;</span>表示每一级缩进的长度</span><br><span class="line"><span class="built_in">set</span> expandtab</span><br><span class="line"><span class="string">&quot;缩进用空格来表示</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">synatx on <span class="comment">#代码高亮</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PlugInstall <span class="comment">#vim-plug 安装插件</span></span><br><span class="line">PlugUpdate</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span> number <span class="comment">#显示行号</span></span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title>VPS</title>
+    <url>/2022/07/07/vps/</url>
+    <content><![CDATA[<h1 id="VPS"><a href="#VPS" class="headerlink" title="VPS"></a>VPS</h1><h2 id="查看ip是否可用"><a href="#查看ip是否可用" class="headerlink" title="查看ip是否可用"></a>查看ip是否可用</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping ip</span><br></pre></td></tr></table></figure>
+<p><a href="https://ping.pe/">https://ping.pe/</a></p>
+<h2 id="添加用户"><a href="#添加用户" class="headerlink" title="添加用户"></a>添加用户</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">useradd user</span><br><span class="line">usermod -G wheel user</span><br><span class="line">passwd user</span><br><span class="line">su user</span><br></pre></td></tr></table></figure>
+<h2 id="设置主机名"><a href="#设置主机名" class="headerlink" title="设置主机名"></a>设置主机名</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo hostnamectl set-hostname &lt;new hostname&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="基本软件"><a href="#基本软件" class="headerlink" title="基本软件"></a>基本软件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum -y update </span><br><span class="line">sudo yum -y upgrade</span><br><span class="line">sudo yum -y install vim git wget</span><br></pre></td></tr></table></figure>
+<h2 id="配置ssh公钥登录"><a href="#配置ssh公钥登录" class="headerlink" title="配置ssh公钥登录"></a>配置ssh公钥登录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/ssh/sshd_config</span><br><span class="line">PasswordAuthentication <span class="built_in">yes</span></span><br><span class="line">sudo service sshd(ssh) restart <span class="comment">#可以使用密码登录，允许添加公钥</span></span><br><span class="line"></span><br><span class="line">(windows)&gt; ssh-copy-id user@host </span><br><span class="line"></span><br><span class="line">sudo vim /etc/ssh/sshd_config</span><br><span class="line">PubkeyAuthentication <span class="built_in">yes</span></span><br><span class="line">PasswordAuthentication no</span><br></pre></td></tr></table></figure>
+<h2 id="配置shell"><a href="#配置shell" class="headerlink" title="配置shell"></a>配置shell</h2><h3 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h3><p>给所有用户配置zsh：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">su root</span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum -y install zsh</span><br><span class="line">sudo dnf install util-linux-user <span class="comment">#安装 chsh</span></span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line">vim .zshrc</span><br><span class="line">ZSH_THEME=<span class="string">&quot;agnoster&quot;</span></span><br><span class="line"><span class="built_in">source</span> .zshrc</span><br><span class="line"><span class="comment"># install zsh-syntax-highlighting</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br><span class="line">vim ~/.zshrc</span><br><span class="line">plugins=( [plugins...] zsh-syntax-highlighting)</span><br><span class="line"><span class="built_in">source</span> .zshrc</span><br><span class="line"><span class="comment"># install zsh-autosuggestions</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line">vim ~/.zshrc</span><br><span class="line">plugins=( </span><br><span class="line">    <span class="comment"># other plugins...</span></span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">)</span><br><span class="line"><span class="built_in">source</span> .zshrc</span><br></pre></td></tr></table></figure>
+<h3 id="ranger"><a href="#ranger" class="headerlink" title="ranger"></a>ranger</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ranger/ranger.git</span><br><span class="line">sudo python setup.py install --optimize=1 --record=install_log.txt</span><br></pre></td></tr></table></figure>
+<h2 id="安装v2ray"><a href="#安装v2ray" class="headerlink" title="安装v2ray"></a>安装v2ray</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh</span><br><span class="line">sudo bash install-release.sh</span><br><span class="line"></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> v2ray</span><br><span class="line">sudo systemctl start v2ray</span><br><span class="line">sudo systemctl status v2ray</span><br><span class="line">sudo systemctl stop v2ray</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> v2rayconfig</span><br><span class="line"><span class="built_in">cd</span> v2rayconfig</span><br><span class="line">wget https://box.nju.edu.cn/f/a2ee6c3aedfa435fb8b4/?dl=1 -O client-config.json</span><br><span class="line">wget https://box.nju.edu.cn/f/a0cb93ae5cc84033932a/?dl=1 -O server-config.json</span><br><span class="line">sudo <span class="built_in">mv</span> server-config.json /usr/local/etc/v2ray/config.json</span><br><span class="line"></span><br><span class="line">sudo <span class="built_in">cat</span> /var/log/v2ray/access.log</span><br><span class="line">sudo <span class="built_in">cat</span> /var/log/v2ray/error.log</span><br></pre></td></tr></table></figure>
+<h2 id="启用BBR"><a href="#启用BBR" class="headerlink" title="启用BBR"></a>启用BBR</h2><ul>
+<li>BBR requires Linux kernel version above 4.9, since CentOS Stream 9 comes with Linux kernel 5.14.0, we can enable it right away.</li>
+</ul>
+<p>check available congestion control algorithms</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br></pre></td></tr></table></figure>
+<p>current congestion control algorithm used in your system</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_congestion_control</span><br></pre></td></tr></table></figure>
+<p>enable TCP BBR</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/sysctl.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># add two lines</span></span><br><span class="line">net.core.default_qdisc=fq</span><br><span class="line">net.ipv4.tcp_congestion_control=bbr</span><br></pre></td></tr></table></figure>
+<p>refresh configuration</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo sysctl -p</span><br></pre></td></tr></table></figure>
+<h2 id="firewall-Centos"><a href="#firewall-Centos" class="headerlink" title="firewall(Centos)"></a>firewall(Centos)</h2><p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7">https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-using-firewalld-on-centos-7</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo yum install firewalld</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> firewalld</span><br><span class="line">sudo reboot <span class="comment"># to enable</span></span><br><span class="line"></span><br><span class="line">sudo firewall-cmd --state <span class="comment"># test if really run </span></span><br><span class="line"></span><br><span class="line">firewall-cmd --get-default-zone <span class="comment"># default zone (public)</span></span><br><span class="line">firewall-cmd --get-active-zone <span class="comment"># public docker</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># important</span></span><br><span class="line">sudo firewall-cmd --list-all <span class="comment"># show the configuration of every zone</span></span><br><span class="line"></span><br><span class="line">sudo firewall-cmd --zone=home --change-interface=eth0 <span class="comment"># transit a interface from one zone to another</span></span><br><span class="line"></span><br><span class="line">sudo firewall-cmd --zone=public --add-service=http <span class="comment"># add service to a zone</span></span><br><span class="line"></span><br><span class="line">sudo firewall-cmd --zone=public --permanent --add-port=5000/tcp <span class="comment"># add port to zone</span></span><br><span class="line">sudo firewall-cmd --zone=public --permanent --list-ports <span class="comment"># check if success</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public (active)</span><br><span class="line">  target: default</span><br><span class="line">  icmp-block-inversion: no</span><br><span class="line">  interfaces: eth0</span><br><span class="line">  sources:</span><br><span class="line">  services: cockpit dhcpv6-client ssh</span><br><span class="line">  ports: 20/tcp 21/tcp 22/tcp 80/tcp 8888/tcp 39000-40000/tcp 10087/tcp 10087/udp 888/tcp 8123/tcp 8123/udp 10086/tcp 10086/udp 10085/tcp 10085/udp</span><br><span class="line">  protocols:</span><br><span class="line">  forward: no</span><br><span class="line">  masquerade: no</span><br><span class="line">  forward-ports:</span><br><span class="line">  source-ports:</span><br><span class="line">  icmp-blocks:</span><br><span class="line">  rich rules:</span><br></pre></td></tr></table></figure>
+<h2 id="npm-Centos"><a href="#npm-Centos" class="headerlink" title="npm(Centos)"></a>npm(Centos)</h2><p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-centos-8">https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-centos-8</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo dnf module list nodejs <span class="comment"># check all available version</span></span><br><span class="line">sudo dnf module <span class="built_in">enable</span> nodejs:12 <span class="comment"># choose one</span></span><br><span class="line">sudo dnf install nodejs <span class="comment">#install </span></span><br><span class="line">node --version <span class="comment"># show version</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>v2ray</category>
+        <category>internet</category>
+      </categories>
+      <tags>
+        <tag>v2ray</tag>
+        <tag>internet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>刷机</title>
+    <url>/2022/07/09/%E5%88%B7%E6%9C%BA/</url>
+    <content><![CDATA[<h1 id="刷机"><a href="#刷机" class="headerlink" title="刷机"></a>刷机</h1><h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><h3 id="boot"><a href="#boot" class="headerlink" title="boot"></a>boot</h3><p><img src="%E5%88%B7%E6%9C%BA.assets/image-20220708195528240.png" alt="image-20220708195528240"></p>
+<p>改CPU调度</p>
+<p>损坏卡在开机第一个画面</p>
+<h3 id="system"><a href="#system" class="headerlink" title="system"></a>system</h3><p><img src="%E5%88%B7%E6%9C%BA.assets/image-20220708195625694.png" alt="image-20220708195625694"></p>
+<p>系统升级</p>
+<p>损坏卡在开机第二个动画</p>
+<h3 id="data"><a href="#data" class="headerlink" title="data"></a>data</h3><p><img src="%E5%88%B7%E6%9C%BA.assets/image-20220708195737285.png" alt="image-20220708195737285"></p>
+<p>储存应用，数据</p>
+<p>清空不会影响手机正常启动</p>
+<h3 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h3><p><img src="%E5%88%B7%E6%9C%BA.assets/image-20220708195837280.png" alt="image-20220708195837280"></p>
+<p>加速对常用资源的访问速度</p>
+<p>清空不影响任何东西</p>
+<h3 id="recovery"><a href="#recovery" class="headerlink" title="recovery"></a>recovery</h3><p><img src="%E5%88%B7%E6%9C%BA.assets/image-20220708195923072-16572815635781.png" alt="image-20220708195923072"></p>
+<p>可以恢复其他分区内容，升级系统 ，擦除其他分区内容</p>
+<p>相当于一个简易操作系统PE</p>
+<blockquote>
+<p><img src="%E5%88%B7%E6%9C%BA.assets/image-20220708200008294.png" alt="image-20220708200008294"></p>
+<p>A/B分区</p>
+<ol>
+<li>可无缝升级</li>
+<li>预防升级失败</li>
+</ol>
+<p>但是要占据双倍空间</p>
+<p><img src="%E5%88%B7%E6%9C%BA.assets/image-20220708200142954.png" alt="image-20220708200142954"></p>
+<p>虚拟AB分区，解决空间占用问题</p>
+<p>但是对于刷机来说比较麻烦</p>
+</blockquote>
+<h3 id="fastboot"><a href="#fastboot" class="headerlink" title="fastboot"></a>fastboot</h3><blockquote>
+<p>类别UEFI</p>
+</blockquote>
+<p><img src="%E5%88%B7%E6%9C%BA.assets/image-20220708200800021.png" alt="image-20220708200800021"></p>
+<p> 引导模式</p>
+<p>手机链接电脑，直接命令行操作</p>
+<p><img src="%E5%88%B7%E6%9C%BA.assets/image-20220708200901583.png" alt="image-20220708200901583"></p>
+<h2 id="电脑端"><a href="#电脑端" class="headerlink" title="电脑端"></a>电脑端</h2>]]></content>
+      <categories>
+        <category>android</category>
+      </categories>
+      <tags>
+        <tag>android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>王者荣耀伤害计算</title>
+    <url>/2022/05/01/%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80%E4%BC%A4%E5%AE%B3%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="王者荣耀伤害计算"><a href="#王者荣耀伤害计算" class="headerlink" title="王者荣耀伤害计算"></a>王者荣耀伤害计算</h1><p>真实扣血：</p>
+<script type="math/tex; mode=display">
+损血=攻击\times (1- 减伤 \%)</script><p>减伤：</p>
+<script type="math/tex; mode=display">
+减伤\% = \dfrac{抗性}{抗性 + 602} \times 100\%</script><p><img src="https://pic2.zhimg.com/80/v2-a9d261661a1e3d0524341bb5e9a361fd_720w.jpg" alt="img"></p>
+<p>抗性：</p>
+<script type="math/tex; mode=display">
+(护甲-破甲)\times (1 - 穿透\%)</script>]]></content>
+      <categories>
+        <category>王者荣耀</category>
+      </categories>
+      <tags>
+        <tag>王者荣耀</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>树莓派</title>
     <url>/2022/05/01/%E6%A0%91%E8%8E%93%E6%B4%BE/</url>
     <content><![CDATA[<p>todo</p>
@@ -32,22 +430,18 @@
 </ol>
 <h1 id="树莓派"><a href="#树莓派" class="headerlink" title="树莓派"></a>树莓派</h1><h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps aux | grep xxx <span class="comment">#查看某一进程</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">ln</span> config.json ~/v2ray/config.json <span class="comment">#创建硬链接，文件链接文件一开始并不存在</span></span><br><span class="line">sudo <span class="built_in">ln</span> -s config.json ~/v2ray/config.json <span class="comment">#创建软连接</span></span><br></pre></td></tr></table></figure>
-<h2 id="配置ssh公钥登录"><a href="#配置ssh公钥登录" class="headerlink" title="配置ssh公钥登录"></a>配置ssh公钥登录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> .ssh <span class="comment">#pi</span></span><br><span class="line">scp ~/.ssh/id_ed25519 yangbc@172.26.119.19:~/.ssh/authorized_keys <span class="comment">#windows</span></span><br><span class="line"><span class="built_in">chmod</span> 600 authorized_keys</span><br><span class="line"><span class="built_in">chmod</span> 700 ~/.ssh</span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line">RSAAuthentication <span class="built_in">yes</span></span><br><span class="line">PubkeyAuthentication <span class="built_in">yes</span></span><br><span class="line">PasswordAuthentication no</span><br><span class="line"></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
-<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">w !sudo <span class="built_in">tee</span> % <span class="comment"># 编辑时忘sudo</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">s<span class="comment">#\#\\#g #使用其他分隔符替换，避免转义</span></span><br><span class="line">s@\@\\@g <span class="comment">#</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">filetype plugin indent on</span><br><span class="line"><span class="string">&quot; show existing tab with 4 spaces width</span></span><br><span class="line"><span class="string">set tabstop=4</span></span><br><span class="line"><span class="string">&quot;</span> when indenting with <span class="string">&#x27;&gt;&#x27;</span>, use 4 spaces width</span><br><span class="line"><span class="built_in">set</span> shiftwidth=4</span><br><span class="line"><span class="string">&quot; On pressing tab, insert 4 spaces</span></span><br><span class="line"><span class="string">set expandtab</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">:synatx on <span class="comment">#代码高亮</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">:PlugInstall <span class="comment">#vim-plug 安装插件</span></span><br><span class="line">:PlugUpdate</span><br></pre></td></tr></table></figure>
+<h2 id="配置ssh公钥登录"><a href="#配置ssh公钥登录" class="headerlink" title="配置ssh公钥登录"></a>配置ssh公钥登录</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> .ssh <span class="comment">#pi</span></span><br><span class="line">scp ~/.ssh/id_ed25519.pub yangbc@172.26.119.19:~/.ssh/authorized_keys <span class="comment">#windows</span></span><br><span class="line"><span class="built_in">chmod</span> 600 authorized_keys</span><br><span class="line"><span class="built_in">chmod</span> 700 ~/.ssh</span><br><span class="line">sudo vim /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line">PubkeyAuthentication <span class="built_in">yes</span></span><br><span class="line">PasswordAuthentication no</span><br><span class="line"></span><br><span class="line">sudo service sshd(ssh) restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh-copy-id user@host</span><br></pre></td></tr></table></figure>
 <h2 id="stop-gui-debian"><a href="#stop-gui-debian" class="headerlink" title="stop gui(debian)"></a>stop gui(debian)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /etc/init.d <span class="comment">#看自己的dm（desktop manager）</span></span><br><span class="line">sudo systemctl stop lightdm <span class="comment"># 临时</span></span><br><span class="line">sudo systemctl set-default multiuser.target <span class="comment">#永久</span></span><br></pre></td></tr></table></figure>
-<h2 id="修改hosts"><a href="#修改hosts" class="headerlink" title="修改hosts"></a>修改hosts</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&quot;C:\Windows\System32\drivers\etc\hosts&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="换源-南大源"><a href="#换源-南大源" class="headerlink" title="换源(南大源)"></a>换源(南大源)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br><span class="line">:%s<span class="comment">#deb.debian.org#mirrors.nju.edu.cn#g</span></span><br><span class="line">:%s<span class="comment">#security.debian.org/debian-security#mirrors.nju.edu.cn/debian-security#g</span></span><br><span class="line">sudo vim /etc/apt/sources.list.d/raspi.list</span><br><span class="line">:%s<span class="comment">#deb.debian.org#mirrors.nju.edu.cn/raspberrypi#g</span></span><br></pre></td></tr></table></figure>
-<h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install zsh</span><br><span class="line"><span class="built_in">cat</span> /etc/shells</span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line">vim .zshrc</span><br><span class="line">ZSH_THEME=<span class="string">&quot;agnoster&quot;</span></span><br><span class="line"><span class="built_in">source</span> .zshrc</span><br><span class="line"><span class="comment"># install zsh-syntax-highlighting</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br><span class="line">vim ~/.zshrc</span><br><span class="line">plugins=( [plugins...] zsh-syntax-highlighting)</span><br><span class="line"><span class="comment"># install zsh-autosuggestions</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line">vim ~/.zshrc</span><br><span class="line">plugins=( </span><br><span class="line">    <span class="comment"># other plugins...</span></span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="ranger"><a href="#ranger" class="headerlink" title="ranger"></a>ranger</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt install ranger</span><br><span class="line">sudo apt install caca-utils highlight atool w3m poppler-utils mediainfo#依赖</span><br><span class="line">ranger Q #建立configure file</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com -o get-docker.sh</span><br><span class="line">sudo sh get-docker.sh</span><br><span class="line">sudo docker run pan93412/unblock-netease-music-enhanced <span class="comment">#run docker需要权限</span></span><br></pre></td></tr></table></figure>
+<h2 id="修改hosts"><a href="#修改hosts" class="headerlink" title="修改hosts"></a>修改hosts</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">vim &quot;C:\Windows\System32\drivers\etc\hosts&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="换源-南大源"><a href="#换源-南大源" class="headerlink" title="换源(南大源)"></a>换源(南大源)</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/apt/sources.list</span><br><span class="line">:%s<span class="comment">#deb.debian.org#mirrors.nju.edu.cn#g</span></span><br><span class="line">:%s<span class="comment">#security.debian.org/debian-security#mirrors.nju.edu.cn/debian-security#g</span></span><br><span class="line">sudo vim /etc/apt/sources.list.d/raspi.list</span><br><span class="line">:%s<span class="comment">#deb.debian.org#mirrors.nju.edu.cn/raspberrypi#g</span></span><br><span class="line">sudo apt update &amp;&amp; upgrade</span><br></pre></td></tr></table></figure>
+<h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install zsh</span><br><span class="line"><span class="built_in">cat</span> /etc/shells</span><br><span class="line">chsh -s $(<span class="built_in">which</span> zsh)</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$SHELL</span></span><br><span class="line">sh -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)</span>&quot;</span></span><br><span class="line">vim .zshrc</span><br><span class="line">ZSH_THEME=<span class="string">&quot;agnoster&quot;</span></span><br><span class="line"><span class="built_in">source</span> .zshrc</span><br><span class="line"><span class="comment"># install zsh-syntax-highlighting</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br><span class="line">vim ~/.zshrc</span><br><span class="line">plugins=( [plugins...] zsh-syntax-highlighting)</span><br><span class="line"><span class="comment"># install zsh-autosuggestions</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line">vim ~/.zshrc</span><br><span class="line">plugins=( </span><br><span class="line">    <span class="comment"># other plugins...</span></span><br><span class="line">    zsh-autosuggestions</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h2 id="ranger"><a href="#ranger" class="headerlink" title="ranger"></a>ranger</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install ranger</span><br><span class="line">sudo apt install caca-utils highlight atool w3m poppler-utils mediainfo<span class="comment">#依赖</span></span><br><span class="line">ranger Q <span class="comment">#建立configure file</span></span><br></pre></td></tr></table></figure>
+<h2 id="docker（网易云）"><a href="#docker（网易云）" class="headerlink" title="docker（网易云）"></a>docker（网易云）</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># for Raspbian</span></span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br><span class="line">sudo docker ps</span><br><span class="line">sudo docker <span class="built_in">kill</span> ID</span><br><span class="line">sudo docker network <span class="built_in">ls</span></span><br><span class="line"></span><br><span class="line">sudo docker run hello-world</span><br><span class="line">sudo docker pull pan93412/unblock-netease-music-enhanced</span><br><span class="line">sudo docker run -e LOG_LEVEL=debug --net=host pan93412/unblock-netease-music-enhanced</span><br></pre></td></tr></table></figure>
 <h2 id="crontab"><a href="#crontab" class="headerlink" title="crontab"></a>crontab</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">crontab -e</span><br><span class="line">@reboot /home/yangbc</span><br></pre></td></tr></table></figure>
 <h2 id="systemd"><a href="#systemd" class="headerlink" title="systemd"></a>systemd</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//在/etc/systemd/system/下创建一个服务，如下</span><br><span class="line"><span class="comment"># vim ser.service</span></span><br><span class="line"></span><br><span class="line">//[Unit] 区块：启动顺序与依赖关系。</span><br><span class="line">[Unit]</span><br><span class="line">//Description字段给出当前服务的简单描述</span><br><span class="line">Description=Run a Custom Script at Startup</span><br><span class="line">After=default.target</span><br><span class="line"></span><br><span class="line">//Service区块定义如何启动当前服务</span><br><span class="line">[Service]</span><br><span class="line">//ExecStart字段：定义启动进程时执行的命令</span><br><span class="line">ExecStart=/home/test.sh</span><br><span class="line"></span><br><span class="line">//Install区块，定义如何安装这个配置文件，即怎样做到开机启动</span><br><span class="line">[Install]</span><br><span class="line">//WantedBy字段：表示该服务所在的 Target,Target的含义是服务组，表示一组服务</span><br><span class="line">WantedBy=default.target</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//更新服务配置文件，并使能服务</span><br><span class="line"><span class="comment"># systemctl daemon-reload</span></span><br><span class="line"><span class="comment"># systemctl enable ser.service</span></span><br><span class="line"></span><br><span class="line">//重启系统</span><br><span class="line"><span class="comment"># reboot</span></span><br></pre></td></tr></table></figure>
 <h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt install ntpdate</span><br><span class="line">sudo ntpdate time.windows.com</span><br><span class="line">timedatectl </span><br><span class="line">timedatectl list-timezones</span><br><span class="line">sudo timedatectl set-timezone &lt;your_time_zone&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h2><h3 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -x <span class="string">&quot;http://&lt;address&gt;:&lt;port&gt;&quot;</span></span><br><span class="line">curl https://httpbin.org/ip <span class="comment">#测试用</span></span><br></pre></td></tr></table></figure>
+<h2 id="proxy"><a href="#proxy" class="headerlink" title="proxy"></a>proxy</h2><h3 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -x <span class="string">&quot;http://&lt;address&gt;:&lt;port&gt;&quot;</span> <span class="comment">#http</span></span><br><span class="line">curl https://httpbin.org/ip <span class="comment">#测试用</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>树莓派</category>
@@ -56,19 +450,6 @@
         <tag>linux</tag>
         <tag>树莓派</tag>
         <tag>计算机网络</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LaTeX_math</title>
-    <url>/2022/06/08/latex-math/</url>
-    <content><![CDATA[<h1 id="LaTeX-math"><a href="#LaTeX-math" class="headerlink" title="LaTeX_math"></a>LaTeX_math</h1><h3 id="在公式正下方加公式"><a href="#在公式正下方加公式" class="headerlink" title="在公式正下方加公式"></a>在公式正下方加公式</h3><figure class="highlight latex"><table><tr><td class="code"><pre><span class="line"><span class="keyword">\oint</span> = 2<span class="keyword">\pi</span> i <span class="keyword">\underset</span>&#123;|z|<span class="keyword">\le</span> 1&#125;&#123;<span class="keyword">\mathrm</span>&#123;Res&#125;&#125;f(z) </span><br></pre></td></tr></table></figure>
-<script type="math/tex; mode=display">
-\oint = 2\pi i \underset{|z|\le 1}{\mathrm{Res}}f(z)</script><h2 id="方程组"><a href="#方程组" class="headerlink" title="方程组"></a>方程组</h2>]]></content>
-      <categories>
-        <category>LaTeX</category>
-      </categories>
-      <tags>
-        <tag>LaTeX</tag>
       </tags>
   </entry>
   <entry>
