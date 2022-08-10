@@ -184,7 +184,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.9k Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.8k Words</span>
         </span>
     
     
@@ -236,7 +236,7 @@
 </ol>
 </li>
 <li><p><code>rc</code> 执行完毕后基本系统环境设置好了，<code>init</code> 接下来打开6个终端，供用户登录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1:2345:respawn:/sbin/mingetty tty1</span><br><span class="line">2:2345:respawn:/sbin/mingetty tty2</span><br><span class="line">3:2345:respawn:/sbin/mingetty tty3</span><br><span class="line">4:2345:respawn:/sbin/mingetty tty4</span><br><span class="line">5:2345:respawn:/sbin/mingetty tty5</span><br><span class="line">6:2345:respawn:/sbin/mingetty tty6</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1:2345:respawn:/sbin/mingetty tty1</span><br><span class="line">2:2345:respawn:/sbin/mingettbin/picgo uploady tty2</span><br><span class="line">3:2345:respawn:/sbin/mingetty tty3</span><br><span class="line">4:2345:respawn:/sbin/mingetty tty4</span><br><span class="line">5:2345:respawn:/sbin/mingetty tty5</span><br><span class="line">6:2345:respawn:/sbin/mingetty tty6</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 <li><p>用户登录：<code>root</code> 可以登录所有终端</p>
@@ -265,7 +265,57 @@
 <h2 id="ssh-登录和公钥私钥"><a href="#ssh-登录和公钥私钥" class="headerlink" title="ssh 登录和公钥私钥"></a><code>ssh</code> 登录和公钥私钥</h2><blockquote>
 <p>从非对称算法角度上， 有两个数e和d, 不等于d，通过公开函数f1(e,p)得到m<br>同样，也可以通过公开函数f2(d,m)得到p， 其中m是原始文本而p是经过变换后的文本。<br>一般而言成为为【编码】和【解码】， 其中持有e的人编码后的数据只有持有d的人能解码，<br>同样持有d的人编码后只有e能解。 这里习惯性的吧e定义为【公钥】，d定义为【私钥】<br>作为公钥私钥的生成着会保存【私钥】（大多数情况下私钥文件里面也会包含公钥），<br>然后讲【公钥】广而告之。</p>
 <p>注意【编码】和【解码】和【加密】【解密】是有差别的。<br>密码学里面， 对文字进行编码后，只有特定的对象（对方）能够解码。 符合这种语义<br>的编解码方式称之为【加密】和【解密】。<br>显然用【私钥】去【编码】后的数据不能叫【加密】的，因为【公钥】所有人都知道，失去了<br>加密的意义。 在公钥私钥系统中， 统一采用【公钥】加密和【私钥】解密。</p>
+<p>而且【私钥】去编码数据【公钥】再去解码数据也并不是没有意义，只是习惯性称之为linux<br>linux启动过程<br>BOIS自检，BIOS启动硬件</p>
+<p>操作系统接管硬件，首先读取&#x2F;boot目录下的内核文件</p>
+<p>运行init程序</p>
+<p>init首先读取配置文件 &#x2F;etc&#x2F;inittab</p>
+<p>有些程序要开机自启，在 linux 中称为 守护进程（daemon）</p>
+<p>启动分为多个级别，不同级别启动不同守护进程</p>
+<p>运行级别0：系统停机状态，系统默认运行级别不能设为0，否则不能正常启动</p>
+<p>运行级别1：单用户工作状态，root权限，用于系统维护，禁止远程登陆</p>
+<p>运行级别2：多用户状态(没有NFS)</p>
+<p>运行级别3：完全的多用户状态(有NFS)，登陆后进入控制台命令行模式</p>
+<p>运行级别4：系统未使用，保留</p>
+<p>运行级别5：X11控制台，登陆后进入图形GUI模式</p>
+<p>运行级别6：系统正常关闭并重启，默认运行级别不能设为6，否则不能正常启动</p>
+<p>&#x2F;etc&#x2F;rc.d&#x2F;rc.sysinit 是每个运行级别都要首先运行的脚本，主要完成：激活交换分区，检查磁盘，加载硬件模块</p>
+<p>rcshort for run commands</p>
+<p>rc 执行完毕后基本系统环境设置好了，init 接下来打开6个终端，供用户登录</p>
+<p>￼<br>1:2345:respawn:&#x2F;sbin&#x2F;mingetty tty1<br>2:2345:respawn:&#x2F;sbin&#x2F;mingettbin&#x2F;picgo uploady tty2<br>3:2345:respawn:&#x2F;sbin&#x2F;mingetty tty3<br>4:2345:respawn:&#x2F;sbin&#x2F;mingetty tty4<br>5:2345:respawn:&#x2F;sbin&#x2F;mingetty tty5<br>6:2345:respawn:&#x2F;sbin&#x2F;mingetty tty6<br>用户登录：root 可以登录所有终端</p>
+<p>默认登陆的是 tty1 可切换至其他终端</p>
+<p>linux 系统目录结构<br>&#x2F;bin ：binaries 库，存放最常使用的程序和命令（kill, rm, mkdir 等）<br>&#x2F;boot ： 系统启动所需文件，包括 内核文件 和 连接文件<br>&#x2F;dev  ： 存放外部设备（device），外部设备以文件的形式进行访问（一切皆文件）<br>&#x2F;etc ： 存放所有系统（包括应用）所需的配置文件<br>&#x2F;home  ： 用户文件夹，例如 Documents, Desktop<br>&#x2F;lib ： 系统的动态连接共享库，类似 DLL 所有程序都要用到这些库 apt, python, systemd<br>&#x2F;media ： 挂载U盘、光驱等设备<br>&#x2F;mnt ： 临时挂载别的文件系统，将光驱挂载进来，可以查看光驱内容<br>&#x2F;proc ： Processes 是一种虚拟文件系统（是系统内存的映射），储存内核运行装态的特殊文件。<br>&#x2F;root ： 系统管理员的用户主目录<br>&#x2F;sbin ： 供系统管理员使用的管理系统的程序，如 shutdown, usermod,<br>&#x2F;srv ： 一些服务启动后需要提取的数据<br>&#x2F;sys ： 文件系统 sysfs 集成了针对进程的 proc文件系统、针对设备的devfs文件系统以及针对伪终端的devpts文件系统，当一个内核被创建时，对应的文件系统被创建<br>&#x2F;tmp ： 存放一些临时文件<br>&#x2F;usr ： 共享资源（unix shared resources ），&#x2F;bin -&gt; &#x2F;usr&#x2F;bin，&#x2F;lib -&gt; &#x2F;usr&#x2F;lib，以及用户的程序。类似于 Program Files<br>&#x2F;var ： 存放不断扩充的内容。例如 日志文件</p>
+<p>ssh 登录和公钥私钥<br>从非对称算法角度上， 有两个数e和d, 不等于d，通过公开函数f1(e,p)得到m<br>同样，也可以通过公开函数f2(d,m)得到p， 其中m是原始文本而p是经过变换后的文本。<br>一般而言成为为【编码】和【解码】， 其中持有e的人编码后的数据只有持有d的人能解码，<br>同样持有d的人编码后只有e能解。 这里习惯性的吧e定义为【公钥】，d定义为【私钥】<br>作为公钥私钥的生成着会保存【私钥】（大多数情况下私钥文件里面也会包含公钥），<br>然后讲【公钥】广而告之。</p>
+<p>注意【编码】和【解码】和【加密】【解密】是有差别的。<br>密码学里面， 对文字进行编码后，只有特定的对象（对方）能够解码。 符合这种语义<br>的编解码方式称之为【加密】和【解密】。<br>显然用【私钥】去【编码】后的数据不能叫【加密】的，因为【公钥】所有人都知道，失去了<br>加密的意义。 在公钥私钥系统中， 统一采用【公钥】加密和【私钥】解密。</p>
 <p>而且【私钥】去编码数据【公钥】再去解码数据也并不是没有意义，只是习惯性称之为【签名】<br>即保证这块数据由【私钥】的持有者生成而不是不让人看到数据是什么<br>（因为大家都有公钥都能解都能证明–比如约定解出来的数据带一个尾巴hahaha，那么所有符合xxxxhahaha的数据都可以认为是私钥发送的别人不能伪造的，发送<br>的有效数据是xxxx）</p>
+<p>其中用e进行 一个公钥对应一个私钥，</p>
+<p>linux 文件基本属性<br>文件属性<br>￼<br>[root@www &#x2F;]# ls -l<br>total 64<br>dr-xr-xr-x   2 root root 4096 Dec 14  2012 bin<br>dr-xr-xr-x   4 root root 4096 Apr 19  2012 boot<br>文件第一个属性：</p>
+<p>d 目录</p>
+<ul>
+<li>文件<br>l  连接文档<br>接下来三个一组 rwx(read write execute)，无对应权限则显示 -</li>
+</ul>
+<p>一共三组，分别是 属主权限，属组权限，其他用户权限</p>
+<p>￼</p>
+<p>对于 root 用户，文件权限对其不起作用</p>
+<p>更改文件属性<br>chgrp 更改文件属组</p>
+<p>￼<br>chgrp [-R（递归）] 属组名 文件名<br>chown 更改文件属主，也可同时更改文件属组</p>
+<p>￼<br>chown [-R] 属主名 文件名<br>chown [-R] 属主名：属组名 文件名<br>chmod 更改文件9个属性</p>
+<p>read : 4</p>
+<p>write : 2</p>
+<p>execute : 1</p>
+<p>￼<br>chmod [-R] xyz<br>linux 文件与目录管理<br>pwd 显示当前目录</p>
+<p>￼<br> yangbc@Yangbc30  &#x2F;bin  pwd<br>&#x2F;bin<br> yangbc@Yangbc30  &#x2F;bin  pwd -P #显示真实路径<br>&#x2F;usr&#x2F;bin<br>文件链接<br>硬链接：不同文件名指向磁盘同一区块</p>
+<p>软链接：文件名指向磁盘中链接文件，链接文件储存到所链接文件的路径</p>
+<p>￼<br> yangbc@Yangbc30  ~  ls -li<br>total 8<br>9324 -rw-rw-r– 2 yangbc yangbc    0 7月  13 11:35 f1<br>9324 -rw-rw-r– 2 yangbc yangbc    0 7月  13 11:35 f2<br>9330 lrwxrwxrwx 1 yangbc yangbc    2 7月  13 11:36 f3 -&gt; f1<br>linux 用户和用户组管理<br>useradd 添加新用户 -g （加入用户组） -d（指定主目录）</p>
+<p>usermod  改变用户属性，参数同上</p>
+<p>userdel 删除用户 -r（将主目录一起删除）</p>
+<p>用户刚创建的时候没有口令，被系统锁定，无法使用，超级用户给他人设定口令，普通用户修改自己的口令</p>
+<p>passwd</p>
+<p>￼<br>groupadd group1 #增加新组，GID（用户组标识）是目前最大+1<br>￼<br>groupadd -g 101 group2 #增加新组，并指定GID<br>￼<br>groupdel group1 #删除用户组<br>￼<br>groupmod [-g(新GID) -n（新组名）]group1<br>￼<br>newgrp #切换到所属的其他用户组<br>用户信息文件：</p>
+<p>&#x2F;etc&#x2F;passwd 用户基本信息：</p>
+<p>￼<br>用户名:口令:用户标识号:组标识号:注释性描述:主目录:登录Shell<br>有些用户登录 shell 为 &#x2F;usr&#x2F;sbin&#x2F;nologin，如sys，bin，adm 等其为伪用户，主要是为了方便系统管理 </p>
+<p>&#x2F;etc&#x2F;shadow 密码信息 </p>
+<p>￼<br>登录名:加密口令:最后一次修改时间:最小时间间隔:最大时间间隔:警告时间:不活动时间:失效时间:标志<br>&#x2F;etc&#x2F;group 用户组信息</p>
+<p>￼<br>组名:口令:组标识号:组内用户列表<br>linux 磁盘管理<br>￼<br>df -a 所有文件系统（包括复制弃用的） -h 用易读的单位显示大小 -T 文件系统的类别<br>￼<br>du -h 易读 -s 列出总量而不递归显示子目录<br>￼<br>fdisk &#x2F;dev&#x2F;sdc # manage partition<br>￼<br>mount &#x2F;dev&#x2F;hdc6 &#x2F;mnt&#x2F;hdc6 # 挂载磁盘<br> 【签名】<br>即保证这块数据由【私钥】的持有者生成而不是不让人看到数据是什么<br>（因为大家都有公钥都能解都能证明–比如约定解出来的数据带一个尾巴hahaha，那么所有符合xxxxhahaha的数据都可以认为是私钥发送的别人不能伪造的，发送<br>的有效数据是xxxx）</p>
 <p>其中用e进行 一个公钥对应一个私钥，</p>
 </blockquote>
 <h2 id="linux-文件基本属性"><a href="#linux-文件基本属性" class="headerlink" title="linux 文件基本属性"></a><code>linux</code> 文件基本属性</h2><h3 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@www /]<span class="comment"># ls -l</span></span><br><span class="line">total 64</span><br><span class="line">dr-xr-xr-x   2 root root 4096 Dec 14  2012 bin</span><br><span class="line">dr-xr-xr-x   4 root root 4096 Apr 19  2012 boot</span><br></pre></td></tr></table></figure>
@@ -278,7 +328,7 @@
 </ul>
 <p>接下来三个一组 <code>rwx(read write execute)</code>，无对应权限则显示 <code>-</code></p>
 <p>一共三组，分别是 属主权限，属组权限，其他用户权限</p>
-<p><img src="/linux.assets/363003_1227493859FdXT.png" alt="363003_1227493859FdXT"></p>
+<p><img src="https://gitee.com/yangbc30/picbed/raw/master/2022-08-11%2000-32-20_363003_1227493859FdXT.png" alt="363003_1227493859FdXT"></p>
 <p>对于 <code>root</code> 用户，文件权限对其不起作用</p>
 <h3 id="更改文件属性"><a href="#更改文件属性" class="headerlink" title="更改文件属性"></a>更改文件属性</h3><p><code>chgrp</code> 更改文件属组</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chgrp</span> [-R（递归）] 属组名 文件名</span><br></pre></td></tr></table></figure>
@@ -368,6 +418,21 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/08/08/mediawiki/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">mediawiki</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">
