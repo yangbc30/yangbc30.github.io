@@ -598,80 +598,11 @@ mjx-container[display="true"] + br {
 
     
         <aside class="page-aside">
-            .post-toc-wrap {
-  width: 100%;
-  font-size: 0.92rem;
-  box-sizing: border-box;
-
-  .post-toc {
-
-    ol {
-      list-style: none;
-      margin: 0;
-      padding: 0 2px 12px 10px;
-      text-align: left;
-
-      &:last-child {
-        padding-bottom: 0;
-      }
-
-      > ol {
-        padding-left: 0;
-      }
-
-      a {
-        transition-property: all;
-        transition();
-      }
-    }
-
-
-    .nav-item {
-      line-height: 1.8;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-
-    .nav {
-      .nav-child {
-        display: hexo-config('toc.expand_all') ? block : none;
-      }
-
-      .active > .nav-child {
-        display: block;
-      }
-
-      .active-current > .nav-child {
-        display: block;
-
-        > .nav-item {
-          display: block;
-        }
-      }
-
-
-      .nav-number, .nav-text {
-        color: var(--default-text-color);
-      }
-
-      .active > a {
-        .nav-number, .nav-text {
-          color: var(--primary-color);
-        }
-      }
-
-      .active-current > a {
-        .nav-number, .nav-text {
-          color: var(--primary-color);
-        }
-      }
-    }
-  }
-}
-
-
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9E%E4%BA%8C%E6%AC%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">实二次型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%8A%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E8%AE%B2%E4%B9%89%E3%80%8B%E7%AC%AC4%E7%AB%A0-%E7%9F%A9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">1.1.</span> <span class="nav-text">《线性代数讲义》第4章 矩阵的特征值与特征向量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E4%BC%BC%E5%AF%B9%E8%A7%92%E5%8C%96%E7%9A%84%E6%9D%A1%E4%BB%B6%E5%92%8C%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">相似对角化的条件和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E4%BC%BC%E5%AF%B9%E8%A7%92%E5%8C%96"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">相似对角化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%8E%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">特征值与特征向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E4%BC%BC%E5%AF%B9%E8%A7%92%E5%8C%96%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">相似对角化的条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">操作方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5%E5%92%8C%E6%96%BD%E5%AF%86%E7%89%B9%E6%AD%A3%E4%BA%A4%E5%8C%96"><span class="nav-number">1.1.2.</span> <span class="nav-text">正交矩阵和施密特正交化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">正交矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%BD%E5%AF%86%E7%89%B9%E6%AD%A3%E4%BA%A4%E5%8C%96"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">施密特正交化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E5%AF%B9%E7%A7%B0%E7%9F%A9%E9%98%B5%E7%9A%84%E6%AD%A3%E4%BA%A4%E5%AF%B9%E8%A7%92%E5%8C%96"><span class="nav-number">1.1.3.</span> <span class="nav-text">实对称矩阵的正交对角化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC5%E7%AB%A0-%E5%AE%9E%E4%BA%8C%E6%AC%A1%E5%9E%8B"><span class="nav-number">1.2.</span> <span class="nav-text">第5章 实二次型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E4%BA%8C%E6%AC%A1%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">实二次型定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%9E%E9%80%80%E5%8C%96%E7%9A%84%E7%BA%BF%E6%80%A7%E5%8F%98%E6%8D%A2%E4%B8%8E%E5%90%88%E5%90%8C%E5%8F%98%E6%8D%A2"><span class="nav-number">1.2.2.</span> <span class="nav-text">非退化的线性变换与合同变换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E5%AF%B9%E8%A7%92%E5%8C%96%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.3.</span> <span class="nav-text">三种对角化方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E4%BA%A4%E5%AF%B9%E8%A7%92%E5%8C%96"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">正交对角化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">配方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%88%E5%90%8C%E5%8F%98%E6%8D%A2%E6%B3%95"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">合同变换法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E4%B8%A4%E4%B8%AA%E7%9F%A9%E9%98%B5%E5%90%8C%E6%97%B6%E5%AF%B9%E8%A7%92%E5%8C%96"><span class="nav-number">1.3.</span> <span class="nav-text">补充：两个矩阵同时对角化</span></a></li></ol></li></ol>
+    </div>
+</div>
         </aside>
     
 
